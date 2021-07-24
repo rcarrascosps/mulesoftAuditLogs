@@ -15,8 +15,8 @@ startDate="2021-07-20 14:59:43"
 echo $startDate
 while :
 do
-		queryJSON='{"startDate": "'$startDate'","endDate": "'$currentDate'","platforms": ["Runtime Manager"],"environmentIds": ["'$environmentIds'"],"objectTypes":["Application"],"actions":["Deploy"],"subactions":["None"],"ascending": false,"organizationId":"'$organizationId'","offset": 0,"limit": 25}'
-		#echo "[INFO]$queryJSON"
+	queryJSON='{"startDate": "'$startDate'","endDate": "'$currentDate'","platforms": ["Runtime Manager"],"environmentIds": ["'$environmentIds'"],"objectTypes":["Application"],"actions":["Deploy"],"subactions":["None"],"ascending": false,"organizationId":"'$organizationId'","offset": 0,"limit": 25}'
+	#echo "[INFO]$queryJSON"
         audit="curl --silent --location --request POST 'https://anypoint.mulesoft.com/audit/v2/organizations/ac584c40-1bf7-4c08-96a3-c9013a01d871/query' --header 'Authorization: Bearer $accessToken' --header 'Content-Type: application/json' -d '$queryJSON'"
         auditJSON=$(eval $audit)
         echo "#########################################"
