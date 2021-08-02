@@ -1,7 +1,6 @@
 #!/bin/bash
 
-muleLogin="curl --silent --location --request POST 'https://anypoint.mulesoft.com/accounts/login' --header 'Content-Type: application/jso
-n' -d @ml.json"
+muleLogin="curl --silent --location --request POST 'https://anypoint.mulesoft.com/accounts/login' --header 'Content-Type: application/json' -d @ml.json"
 muleLoginJSON=$(eval $muleLogin)
 accessToken=$(echo $muleLoginJSON | jq -r '.access_token')
 echo $accessToken
@@ -16,13 +15,11 @@ startDate="2021-07-30 14:59:43"
 echo $startDate
 while :
 do
-                queryJSON='{"startDate": "'$startDate'","endDate": "'$currentDate'","platforms": ["Runtime Manager"],"environmentIds": ["
-'$environmentIds'"],"objectTypes":["Application"],"ascending": false,"organizationId":"'$organizationId'","offset": 0,"limit": 25}'
-                #echo "[INFO]$queryJSON"
-        audit="curl --silent --location --request POST 'https://anypoint.mulesoft.com/audit/v2/organizations/$organizationId/query' --hea
-der 'Authorization: Bearer $accessToken' --header 'Content-Type: application/json' -d '$queryJSON'"
+        queryJSON='{"startDate": "'$startDate'","endDate": "'$currentDate'","platforms": ["Runtime Manager"],"environmentIds": ["'$environmentIds'"],"objectTypes":["Application"],"ascending": false,"organizationId":"'$organizationId'","offset": 0,"limit": 25}'
+        #echo "[INFO]$queryJSON"
+        audit="curl --silent --location --request POST 'https://anypoint.mulesoft.com/audit/v2/organizations/$organizationId/query' --header 'Authorization: Bearer $accessToken' --header 'Content-Type: application/json' -d '$queryJSON'"
         auditJSON=$(eval $audit)
-        echo "#########################################"
+        echo "[INFO] #########################################"
         echo $auditJSON
                 totalJSON=$(echo $auditJSON | jq -r '.total')
                 echo "TOTAL $totalJSON"
@@ -30,7 +27,7 @@ der 'Authorization: Bearer $accessToken' --header 'Content-Type: application/jso
                 then
                         echo $auditJSON  > /dev/udp/yourUDP_server/yourUDP_port
                 else
-                        echo '[INFO] No hay eventos de auditoria.'
+                        echo '[INFO] There are no new events.'
                 fi
         sleep 5
                 startDate=$currentDate
