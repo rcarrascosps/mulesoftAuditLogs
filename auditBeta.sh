@@ -21,17 +21,17 @@ do
         auditJSON=$(eval $audit)
         echo "[INFO] #########################################"
         echo $auditJSON
-                totalJSON=$(echo $auditJSON | jq -r '.total')
-                echo "TOTAL $totalJSON"
-                if [ $totalJSON -gt $total ]
-                then
-                        echo $auditJSON  > /dev/udp/yourUDP_server/yourUDP_port
-                else
-                        echo '[INFO] There are no new events.'
-                fi
+        totalJSON=$(echo $auditJSON | jq -r '.total')
+        echo "Total of new events: $totalJSON"
+        if [ $totalJSON -gt $total ]
+          then
+              echo $auditJSON  > /dev/udp/yourUDP_server/yourUDP_port
+          else
+              echo '[INFO] There are no new events.'
+        fi
         sleep 5
-                startDate=$currentDate
-                currentDate=`date +"%Y-%m-%d %T"`
-                echo "[INFO] StartDate $startDate"
-                echo "[INFO] EndDate $currentDate"
+        startDate=$currentDate
+        currentDate=`date +"%Y-%m-%d %T"`
+        echo "[INFO] StartDate $startDate"
+        echo "[INFO] EndDate $currentDate"
 done
