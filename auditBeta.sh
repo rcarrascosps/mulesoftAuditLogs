@@ -25,9 +25,10 @@ do
         echo "Total of new events: $totalJSON"
         if [ $totalJSON -gt $total ]
           then
+              echo "[INFO] Event(s) send to syslog"
               echo $auditJSON  > /dev/udp/yourUDP_server/yourUDP_port
           else
-              echo '[INFO] There are no new events.'
+              echo "[INFO] There are no new events."
         fi
         sleep 5
         startDate=$currentDate
