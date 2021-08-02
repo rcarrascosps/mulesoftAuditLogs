@@ -1,7 +1,8 @@
-# Mulesoft Audit Logs
-Contains a sample application to constantly query the audit logs of Anypoint Platform.
+# MuleSoft Audit Logs Utility
+Contains a sample shell based application that constantly query the audit logs of Anypoint Platform.
 
-This tool is going to be polling the Audit API and query for new events.
+This tool is going to be polling the Audit API and query for new events. Currently contains the logic to retrieve Applications events, such as: Deploy, Create, Start, Delete. This can be for CloudHub, Standalone, Runtime Fabric, etc.
+
 If new events are detected, those will be send to a syslog UDP based system for consolidation.
 
 ## Pre-requisites
