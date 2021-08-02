@@ -1,6 +1,6 @@
 #!/bin/bash
 
-muleLogin="curl --silent --location --request POST 'https://anypoint.mulesoft.com/accounts/login' --header 'Content-Type: application/json' -d @ml.json"
+muleLogin="curl --silent --location --request POST 'https://anypoint.mulesoft.com/accounts/login' --header 'Content-Type: application/json' -d @auth.json"
 muleLoginJSON=$(eval $muleLogin)
 accessToken=$(echo $muleLoginJSON | jq -r '.access_token')
 echo $accessToken
