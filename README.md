@@ -17,7 +17,7 @@ In order to execute it you just need to write your credentials in file auth.json
 Also you need to set:
 - Your environment ID where you want to get the events. **Line 9.**
 - Your organzation ID. **Line 10**
-- Your UPD Server and UPD port where you want to send the events. **Line 31.**
+- Your UPD Server and UPD port where you want to send the events. **Line 28.**
 - The start date from where you want to start getting the audit logs. **Line 15.**
 
 If you do not know where to get the **environment ID** and **organization ID**, you can get it from here:
@@ -30,7 +30,7 @@ https://help.mulesoft.com/s/article/How-to-know-my-Organization-ID-Org-ID-on-the
 
 https://help.mulesoft.com/s/article/How-to-get-the-Environment-ID
 
-Once you run it, it will start pulling the events based on the start date, and then every five seconds (**Line 35**), it will look for new events.
+Once you run it, it will start pulling the events based on the start date, and then every five seconds (**Line 32**), it will look for new events.
 
 ## TO-DO
 
