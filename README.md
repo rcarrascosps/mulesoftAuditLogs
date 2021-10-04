@@ -34,6 +34,7 @@ https://help.mulesoft.com/s/article/How-to-get-the-Environment-ID
 
 Once you run it, it will start pulling the events based on the start date, and then every five seconds (**Line 32 of auditBeta.sh**), it will look for new events.
 
+
 ## TO-DO
 
 - Parametrized the ammount of seconds to wait for new events
