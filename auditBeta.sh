@@ -2,7 +2,7 @@
 
 #muleLogin="curl --silent --location --request POST 'https://anypoint.mulesoft.com/accounts/login' --header 'Content-Type: application/json' -d @auth.json"
 
-muleLogin = "curl --location 'https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token' --header 'Content-Type: application/x-www-form-urlencoded' --header 'Authorization: Basic YjZkNjFjYzAyMjE2NGUyNDgyY2IxN2FmNzRlMzRjYTY6OEYxMDkyMDE2RDM5NDU2Nzk1MUI3QjcxMkFiM2FlZDE=' --data-urlencode 'grant_type=client_credentials' --data-urlencode 'scope=full'"
+muleLogin = "curl --location 'https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token' --header 'Content-Type: application/x-www-form-urlencoded' --header 'Authorization: Basic $creds' --data-urlencode 'grant_type=client_credentials' --data-urlencode 'scope=full'"
 
 muleLoginJSON=$(eval $muleLogin)
 accessToken=$(echo $muleLoginJSON | jq -r '.access_token')
