@@ -4,7 +4,6 @@ Contains a sample shell based application that constantly query the audit logs o
 This tool is going to be polling the Audit Log Query API and query for new events. Currently contains the logic to retrieve Applications events, such as: Deploy, Create, Start, Delete. This can be for CloudHub, Standalone, Runtime Fabric, etc.
 
 If new events are detected, those will be send to a syslog UDP based system for consolidation.
-
 As previously mentioned, this shell based applications uses the MuleSoft Anypoint Platform Audit Log Query API. The official MuleSoft documentation can be found [here](https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/audit-log-query-api/)
 
 ## Pre-requisites
